@@ -16,6 +16,8 @@
 		FA1407572DC0444E007FAD15 /* TableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1407562DC0444E007FAD15 /* TableViewControllerTests.swift */; };
 		FA1407612DC0444E007FAD15 /* TableViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1407602DC0444E007FAD15 /* TableViewControllerUITests.swift */; };
 		FA1407632DC0444E007FAD15 /* TableViewControllerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1407622DC0444E007FAD15 /* TableViewControllerUITestsLaunchTests.swift */; };
+		FA1407722DC04978007FAD15 /* TableViewControllerNuevo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1407712DC04978007FAD15 /* TableViewControllerNuevo.swift */; };
+		FA1407742DC04F1F007FAD15 /* ICONOS in Resources */ = {isa = PBXBuildFile; fileRef = FA1407732DC04F1F007FAD15 /* ICONOS */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		FA14075C2DC0444E007FAD15 /* TableViewControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableViewControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA1407602DC0444E007FAD15 /* TableViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerUITests.swift; sourceTree = "<group>"; };
 		FA1407622DC0444E007FAD15 /* TableViewControllerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FA1407712DC04978007FAD15 /* TableViewControllerNuevo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerNuevo.swift; sourceTree = "<group>"; };
+		FA1407732DC04F1F007FAD15 /* ICONOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ICONOS; path = ../../ICONOS; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +103,11 @@
 		FA14073E2DC0444C007FAD15 /* TableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				FA1407732DC04F1F007FAD15 /* ICONOS */,
 				FA14073F2DC0444C007FAD15 /* AppDelegate.swift */,
 				FA1407412DC0444C007FAD15 /* SceneDelegate.swift */,
 				FA1407432DC0444C007FAD15 /* ViewController.swift */,
+				FA1407712DC04978007FAD15 /* TableViewControllerNuevo.swift */,
 				FA1407452DC0444C007FAD15 /* Main.storyboard */,
 				FA1407482DC0444D007FAD15 /* Assets.xcassets */,
 				FA14074A2DC0444D007FAD15 /* LaunchScreen.storyboard */,
@@ -232,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA14074C2DC0444D007FAD15 /* LaunchScreen.storyboard in Resources */,
+				FA1407742DC04F1F007FAD15 /* ICONOS in Resources */,
 				FA1407492DC0444D007FAD15 /* Assets.xcassets in Resources */,
 				FA1407472DC0444C007FAD15 /* Main.storyboard in Resources */,
 			);
@@ -259,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1407442DC0444C007FAD15 /* ViewController.swift in Sources */,
+				FA1407722DC04978007FAD15 /* TableViewControllerNuevo.swift in Sources */,
 				FA1407402DC0444C007FAD15 /* AppDelegate.swift in Sources */,
 				FA1407422DC0444C007FAD15 /* SceneDelegate.swift in Sources */,
 			);
