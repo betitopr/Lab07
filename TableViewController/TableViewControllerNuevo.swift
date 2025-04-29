@@ -11,7 +11,7 @@ import UIKit
 
 class TableViewControllerNuevo: UITableViewController {
     // Arreglo que contendrá los datos para mostrar en la tabla
-    var arregloNumeros = ["1", "2", "3", "4"]
+    var arregloNumeros = ["1", "2", "3", "4","5"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +20,10 @@ class TableViewControllerNuevo: UITableViewController {
         //setEditing(true, animated: true)
 
         // Uncomment the following line to preserve selection between presentations
+        
         // self.clearsSelectionOnViewWillAppear = false
 
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
@@ -48,22 +50,24 @@ class TableViewControllerNuevo: UITableViewController {
         
         switch cell.textLabel?.text {
             case "1":
-                cell.imageView?.image = UIImage(named: "ICONOS/1.jpg")
-                cell.detailTextLabel?.text = "Celda numero 1"
+                cell.imageView?.image = UIImage(named: "ICONOS/mercedez.jpeg")
+                cell.detailTextLabel?.text = "Mercedes-Benz S-Class"
             case "2":
-                cell.imageView?.image = UIImage(named: "ICONOS/2.jpg")
-                cell.detailTextLabel?.text = "Celda numero 2"
+                cell.imageView?.image = UIImage(named: "ICONOS/bmw.jpeg")
+                cell.detailTextLabel?.text = "BMW Serie 7"
             case "3":
-                cell.imageView?.image = UIImage(named: "ICONOS/3.jpg")
-                cell.detailTextLabel?.text = "Celda numero 3"
+                cell.imageView?.image = UIImage(named: "ICONOS/audi.jpeg")
+                cell.detailTextLabel?.text = "Audi A8"
             case "4":
-                cell.imageView?.image = UIImage(named: "ICONOS/4.jpg")
-                cell.detailTextLabel?.text = "Celda numero 4"
+                cell.imageView?.image = UIImage(named: "ICONOS/porsche.jpeg")
+                cell.detailTextLabel?.text = "Porsche Panamera"
+            case "5":
+            cell.imageView?.image = UIImage(named: "ICONOS/rolls.jpeg")
+            cell.detailTextLabel?.text = "Rolls-Royce Phantom"
             default:
                 print("No hay mas elementos para llenar imagen")
                 cell.detailTextLabel?.text = "Celda fuera de rango"
             }
-        
         return cell
     }
     
@@ -75,34 +79,20 @@ class TableViewControllerNuevo: UITableViewController {
         return true
     }
     
-    //Codigo estilo de botones personalizados
-    
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         // Acción para eliminar
-        let botonEliminar = UITableViewRowAction(style: .destructive, title: "Eliminar") { (accionesFila, indicefila) in
+        let botonEliminar = UITableViewRowAction(style: .normal, title: "Eliminar") { (accionesFila, indiceFila) in
             self.arregloNumeros.remove(at: indexPath.row)
-            // Elimina específicamente la fila en lugar de recargar toda la tabla
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+            
         }
         botonEliminar.backgroundColor = UIColor.red
         
         // Acción para insertar
-        let botonInsertar = UITableViewRowAction(style: .normal, title: "Insertar") { (accionesFila, indicefila) in
-            // Intenta convertir de forma segura
-            if let ultimoElemento = self.arregloNumeros.last, let numero = Int(ultimoElemento) {
-                // Inserta después de la fila actual en lugar de al final
-                let nuevoElemento = String(numero + 1)
-                let nuevaPosicion = indexPath.row + 1
-                
-                // Asegura que no exceda los límites del arreglo
-                let posicionSegura = min(nuevaPosicion, self.arregloNumeros.count)
-                
-                self.arregloNumeros.insert(nuevoElemento, at: posicionSegura)
-                
-                // Inserta la nueva fila específicamente
-                let nuevoIndexPath = IndexPath(row: posicionSegura, section: 0)
-                tableView.insertRows(at: [nuevoIndexPath], with: .automatic)
-            }
+        let botonInsertar = UITableViewRowAction(style: .normal, title: "Insertar") { (accionesFila, indiceFila) in
+            let ultimoElemento = self.arregloNumeros[self.arregloNumeros.count-1]
+            self.arregloNumeros.append(String(Int(ultimoElemento)! + 1))
+            tableView.reloadData()
         }
         botonInsertar.backgroundColor = UIColor.green
         
@@ -141,6 +131,18 @@ class TableViewControllerNuevo: UITableViewController {
             arregloNumeros.insert(objetoMovido, at: to.row)
             NSLog("%@", "\(fromIndexPath.row) => \(to.row) \(arregloNumeros)")
 
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let valorSeleccionado = indexPath.row
+        self.performSegue(withIdentifier: "pantallaDosSegue", sender: valorSeleccionado)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pantallaDosSegue" {
+            let valorRecibido = sender as? Int
+            let pantalla2: ViewControllerVer = segue.destination as! ViewControllerVer
+            pantalla2.valorRecibido = arregloNumeros[valorRecibido!]
+        }
     }
     
 
